@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .calculator {
+            display: flex;
+            flex-flow: column wrap;
+            width: 100vw;
+            height: 100vh;
+            align-items: center;
+            gap: 5px;
+        }
+        .input {
+            border-radius: 10px;
+            width: 200px;
+        }
+        .buttons-div{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-gap: 10px;
+            padding: 10px;
+            width: 175px;
+        }
+        .button {
+            box-shadow: 2px 2px #888888;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input class="input" type="text" id="history" readonly />
+        <input class="input" type="text" id="calculator" readonly/>
+        <div class="buttons-div">
+            <div class="button"></div>
+            <div class="button"></div>
+            <div class="button">C</div>
+            <div class="button">%</div>
+            <div class="button">7</div>
+            <div class="button">8</div>
+            <div class="button">9</div>
+            <div class="button">X</div>
+            <div class="button">4</div>
+            <div class="button">5</div>
+            <div class="button">6</div>
+            <div class="button">-</div>
+            <div class="button">1</div>
+            <div class="button">2</div>
+            <div class="button">3</div>
+            <div class="button">+</div>
+            <div class="button"></div>
+            <div class="button">0</div>
+            <div class="button">.</div>
+            <div class="button">=</div>
+        </div>
+    </div>
+    <script>
+        let buttons = document.getElementsByClassName("button");
+        let history = document.getElementById("history");
+        let calculator = document.getElementById("calculator");
+        let lastClick = "";
+        var numberPattern = /\d+/g;
+        let valueToCalculate = "";
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', ()=>{
+                if (buttons[i].innerHTML == "") {
+                    return
+                }
+                if (buttons[i].innerHTML == "C") {
+                    history.value = "";
+                    calculator.value = "";
+                    return
+                }
+                if (buttons[i].innerHTML.match(numberPattern)) {
+                    history.value += buttons[i].innerHTML;
+                } else {
+                    if (buttons[i].innerHTML !== "="){
+                        if (buttons[i].innerHTML == "X") {
+                            history.value = "(" + history.value + ") " + "*";
+                        } else if (buttons[i].innerHTML == "%") {
+                            history.value  = "(" + history.value + ") " + "/";
+                        } else {
+                            history.value += " " + buttons[i].innerHTML;
+                        }
+                        valueToCalculate = history.value.replace(/.$/,"")
+                    } else {
+                        valueToCalculate = history.value;
+                    }
+                    calculator.value = eval(valueToCalculate)
+                }
+                
+            })
+        }
+    </script>
+</body>
+</html>

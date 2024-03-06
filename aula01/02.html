@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="texto"/>
+    <input type="button"  onclick="validar()" value="Clique"/>
+    <br/>
+    <div id="background">
+        <div id="box" style="background-color: red;
+        width: 150px;
+        height: 150px;"></div>
+    </div>
+    <script>
+        function validar() {
+            console.log('1')
+            let textValue = document.getElementById("texto").ariaValueMax
+
+            if (textValue === '') {
+                alert("Voce precisa digitar uma cor")
+            } else {
+                let box = document.getElementById("box")
+                box.style.background = textValue
+                box.innerHTML = textValue
+                box.style.width = "150px";
+                box.style.height = "150px";
+
+                
+            }
+        }
+    </script>
+</body>
+</html>
