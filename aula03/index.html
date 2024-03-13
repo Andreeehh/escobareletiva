@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .body {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+        
+        <div>
+            <label>Placa</label>
+            <input type="text" id="licensePlate" />
+            <label>Modelo</label>
+            <input type="text" id="model" />
+            <label>Ano fabricação</label>
+            <input type="text" id="year" />
+            <button onclick="register()">Cadastrar</button>
+        </div>
+    <label>Cadastrados</label>
+    <table id="storage">
+        <tr style="background: #ccc; font-weight: bold;">
+            <td onclick="rent(this)">⬇️</td>
+            <td>Placa</td>
+            <td>Modelo</td>
+            <td>Ano</td>
+        </tr>
+    </table>
+    <hr />
+    <label>Alugados</label>
+    <table id="rented">
+        <tr style="background: #ccc; font-weight: bold;">
+            <td onclick="returnRented(this)">⬆️</td>
+            <td>Placa</td>
+            <td>Modelo</td>
+            <td>Ano</td>
+        </tr>
+    </table>
+    <script>
+        const licensePlate = document.getElementById("licensePlate")
+        const model = document.getElementById("model")
+        const year = document.getElementById("year")
+        const storageTable = document.getElementById("storage")
+        const storageBody = storageTable.childNodes[1]
+        const rentedTable = document.getElementById("rented")
+        const rentedBody = rentedTable.childNodes[1]
+        licensePlate.addEventListener('keydown', (event) => {
+            if (event.key === "Enter") {
+                model.focus()
+            }
+        });
+        model.addEventListener('keydown', (event) => {
+            if (event.key === "Enter") {
+                year.focus()
+            }
+        });
+        year.addEventListener('keydown', (event) => {
+            if (event.key === "Enter") {
+                register()
+            }
+        });
+        licensePlate.focus()
+        function register() {
+            
+
+            const newLine = storageTable.insertRow(-1)
+            const cell0 = newLine.insertCell(0)
+            const cell1 = newLine.insertCell(1)
+            const cell2 = newLine.insertCell(2)
+            const cell3 = newLine.insertCell(3)
+
+            cell0.innerHTML = "⬇️"
+            cell0.addEventListener("click", function() {
+                moveSingle(newLine);
+            });
+            cell1.innerHTML = licensePlate.value
+            cell2.innerHTML = model.value
+            cell3.innerHTML = year.value
+
+            licensePlate.value = ""
+            model.value = ""
+            year.value = ""
+            licensePlate.focus()
+        }
+
+        
+
+
+        function rent(item) {
+            let childNodes = []
+            for (let index = 2; index < storageBody.childNodes.length; index++) {
+                childNodes.push(storageBody.childNodes[index])
+            }
+            for (let index = 0; index < childNodes.length; index++) {
+                childNodes[index].cells[0].innerHTML = "⬆️"
+                rentedBody.appendChild(childNodes[index])
+            }
+        }
+
+        function returnRented(item) {
+            let childNodes = []
+            for (let index = 2; index < rentedBody.childNodes.length; index++) {
+                childNodes.push(rentedBody.childNodes[index])
+            }
+            for (let index = 0; index < childNodes.length; index++) {
+                childNodes[index].cells[0].innerHTML = "⬇️"
+                storageBody.appendChild(childNodes[index])
+            }
+        }
+
+        function moveSingle(item) {
+            if (storageTable == item.parentNode.parentNode){
+                item.cells[0].innerHTML = "⬆️"
+                rentedBody.appendChild(item)
+            } else {
+                item.cells[0].innerHTML = "⬇️"
+                storageBody.appendChild(item)
+            }
+        }
+    </script>
+</body>
+</html>
