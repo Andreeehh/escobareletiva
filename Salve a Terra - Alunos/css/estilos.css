@@ -22,15 +22,272 @@ body {
 }
 
 #alerta {
-    display: none;
-    text-align: center;
-    background: white;
-    width: 350px;
-    height: 250px;
-    margin-left: 150px;
-    padding-top: 25px;
+	width: 350px;
+	height: 250px;
+	background: #fff;
+	margin-left: 150px;
+	margin-right: auto;
+	top: 25px;
+	text-align: center;
+	position: absolute;
 }
 
-#teste {
-    background-color: blueviolet;
+#alerta  h1 {
+	padding-top: 25px;
+	font-family: Ufo;
+	font-size: 36px;
+	font-style: italic;
+}
+
+
+#alerta  p {
+	font-family: Ufo;
+	font-size: 24px;
+}
+
+#alerta  h2 {
+	font-family: Ufo;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+
+#player {
+    width: 109px;
+    height: 60px;
+    top: 125px;
+    background-image: url("../img/jogador.png");
+    position: absolute;
+
+    animation: p_player .9s steps(7) infinite;
+    -webkit-animation: p_player .9s steps(7) infinite;
+    -moz-animation: p_player .9s steps(7) infinite;
+    -ms-animation: p_player .9s steps(7) infinite;
+    -o-animation: p_player .9s steps(7) infinite;
+}
+
+@keyframes p_player {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -763px;
+    }
+}
+
+@-webkit-keyframes p_player {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -763px;
+    }
+}
+
+@-moz-keyframes p_player {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -763px;
+    }
+}
+
+@-ms-keyframes p_player {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -763px;
+    }
+}
+
+@-o-keyframes p_player {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -763px;
+    }
+}
+
+
+#tank {
+    top: 270px;
+    left: 500px;
+    width: 75px;
+    height: 50px;
+    background-image: url("../img/tanque.png");
+    position: absolute;
+
+    animation: p_tank .9s steps(5) infinite;
+    -webkit-animation: p_tank .9s steps(5) infinite;
+    -moz-animation: p_tank .9s steps(5) infinite;
+    -ms-animation: p_tank .9s steps(5) infinite;
+    -o-animation: p_tank .9s steps(5) infinite;
+}
+
+@keyframes p_tank {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -380px;
+    }
+}
+
+@-webkit-keyframes p_tank {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -380px;
+    }
+}
+
+@-moz-keyframes p_tank {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -380px;
+    }
+}
+
+@-ms-keyframes p_tank {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -380px;
+    }
+}
+
+@-o-keyframes p_tank {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -380px;
+    }
+}
+
+#alien {
+    top: 100px;
+    left: 500px;
+    width: 47px;
+    height: 48px;
+    background-image: url("../img/inimigo.png");
+    position: absolute;
+
+    animation: p_alien .9s steps(12) infinite;
+    -webkit-animation: p_alien .9s steps(12) infinite;
+    -moz-animation: p_alien .9s steps(12) infinite;
+    -ms-animation: p_alien .9s steps(12) infinite;
+    -o-animation: p_alien .9s steps(12) infinite;
+}
+
+@keyframes p_alien {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -604px;
+    }
+}
+
+@-webkit-keyframes p_alien {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -604px;
+    }
+}
+
+@-moz-keyframes p_alien {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -604px;
+    }
+}
+
+@-ms-keyframes p_alien {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -604px;
+    }
+}
+
+@-o-keyframes p_alien {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -604px;
+    }
+}
+
+#person {
+    top: 280px;
+    left: 50px;
+    width: 31px;
+    height: 50px;
+    background-image: url("../img/pessoa.png");
+    position: absolute;
+
+    animation: p_person .9s steps(12) infinite;
+    -webkit-animation: p_person .9s steps(12) infinite;
+    -moz-animation: p_person .9s steps(12) infinite;
+    -ms-animation: p_person .9s steps(12) infinite;
+    -o-animation: p_person .9s steps(12) infinite;
+}
+
+@keyframes p_person {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -379px;
+    }
+}
+
+@-webkit-keyframes p_person {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -379px;
+    }
+}
+
+@-moz-keyframes p_person {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -379px;
+    }
+}
+
+@-ms-keyframes p_person {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -379px;
+    }
+}
+
+@-o-keyframes p_person {
+    from {
+        background-position: 0px;
+    }
+    to {
+        background-position: -379px;
+    }
 }
